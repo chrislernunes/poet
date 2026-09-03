@@ -118,13 +118,84 @@
   --vp-custom-block-danger-border: var(--poet-red);
 }
 
-/* Force dark regardless of OS preference */
-html {
-  color-scheme: dark;
+/* ============================================================
+   Light theme tokens (when .dark is NOT present)
+   ============================================================ */
+
+html:not(.dark) {
+  color-scheme: light;
+
+  --poet-bg: #fafafa;
+  --poet-bg-depth: #f0f0f0;
+  --poet-surface: #ffffff;
+  --poet-surface-hover: #f5f5f5;
+  --poet-surface-active: #eeeeee;
+
+  --poet-text-main: #111111;
+  --poet-text-muted: #666666;
+  --poet-text-tertiary: #888888;
+
+  --poet-border: #e5e5e5;
+  --poet-border-active: #d4d4d4;
+
+  --poet-accent: #111111;
+  --poet-accent-dim: rgba(0, 0, 0, 0.08);
+  --poet-accent-subtle: rgba(0, 0, 0, 0.04);
+
+  --poet-green: #16a34a;
+  --poet-red: #dc2626;
+  --poet-blue: #2563eb;
+
+  /* VitePress overrides for light */
+  --vp-c-bg: var(--poet-bg);
+  --vp-c-bg-alt: var(--poet-bg-depth);
+  --vp-c-bg-elv: var(--poet-surface);
+  --vp-c-bg-soft: var(--poet-surface);
+
+  --vp-c-text-1: var(--poet-text-main);
+  --vp-c-text-2: var(--poet-text-muted);
+  --vp-c-text-3: var(--poet-text-tertiary);
+
+  --vp-c-divider: var(--poet-border);
+  --vp-c-gutter: var(--poet-bg-depth);
+
+  --vp-c-brand-1: var(--poet-accent);
+  --vp-c-brand-2: var(--poet-accent);
+  --vp-c-brand-3: var(--poet-accent);
+  --vp-c-brand-soft: var(--poet-accent-dim);
+
+  --vp-sidebar-bg-color: var(--poet-bg);
+  --vp-nav-bg-color: var(--poet-bg);
+
+  --vp-code-bg: var(--poet-bg-depth);
+  --vp-code-color: var(--poet-text-main);
+  --vp-code-block-bg: var(--poet-bg-depth);
+
+  --vp-button-brand-bg: var(--poet-accent);
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-hover-bg: #333333;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-active-bg: #000000;
+  --vp-button-brand-active-text: #ffffff;
+
+  --vp-button-alt-bg: var(--poet-surface);
+  --vp-button-alt-text: var(--poet-text-main);
+  --vp-button-alt-hover-bg: var(--poet-surface-hover);
+  --vp-button-alt-hover-text: var(--poet-text-main);
 }
 
 .dark {
   color-scheme: dark;
+}
+
+/* Light-mode navbar / chrome overrides */
+html:not(.dark) .VPNav {
+  border-bottom: 1px solid var(--poet-border) !important;
+}
+
+html:not(.dark) .VPNavBar {
+  background: rgba(250, 250, 250, 0.95) !important;
+  border-bottom: 1px solid var(--poet-border) !important;
 }
 
 
@@ -185,14 +256,14 @@ body {
 }
 
 .VPNav {
-  border-bottom: 1px solid #161616 !important;
+  border-bottom: 1px solid var(--poet-border) !important;
 }
 
 .VPNavBar {
-  background: rgba(5, 5, 5, 0.95) !important;
+  background: color-mix(in srgb, var(--poet-bg) 95%, transparent) !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid #161616 !important;
+  border-bottom: 1px solid var(--poet-border) !important;
 }
 
 .VPNavBar .title {
