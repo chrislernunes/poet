@@ -38,14 +38,14 @@ export default defineConfig({
       return [
         ["meta", { property: "og:title", content: siteData.title }],
         ["meta", { property: "og:description", content: siteData.description }],
-        ["meta", { property: "og:url", content: "https://poteto.github.io/poet/" }],
+        ["meta", { property: "og:url", content: "https://chrislernunes.github.io/poet/" }],
         ["meta", { property: "og:site_name", content: siteData.title }],
         ["meta", { property: "og:type", content: "website" }],
-        ["meta", { property: "og:image", content: "https://poteto.github.io/poet/og-introduction.png" }],
+        ["meta", { property: "og:image", content: "https://chrislernunes.github.io/poet/og-introduction.png" }],
         ["meta", { property: "og:image:width", content: "1200" }],
         ["meta", { property: "og:image:height", content: "630" }],
         ["meta", { name: "twitter:card", content: "summary_large_image" }],
-        ["meta", { name: "twitter:image", content: "https://poteto.github.io/poet/og-introduction.png" }],
+        ["meta", { name: "twitter:image", content: "https://chrislernunes.github.io/poet/og-introduction.png" }],
       ];
     }
   },
@@ -53,7 +53,7 @@ export default defineConfig({
   appearance: false,
 
   buildEnd: buildEndGenerateOpenGraphImages({
-    baseUrl: "https://poteto.github.io/poet",
+    baseUrl: "https://chrislernunes.github.io/poet",
     category: {
       byCustomGetter: (page) => {
         const dir = page.sourceFilePath.split("/")[1];
@@ -69,8 +69,8 @@ export default defineConfig({
 
   themeConfig: {
     nav: [
-      { text: POET_VERSION, link: `https://github.com/poteto/poet/releases/tag/${POET_VERSION}` },
-      { text: "GitHub", link: "https://github.com/poteto/poet" },
+      { text: POET_VERSION, link: `https://github.com/chrislernunes/poet/releases/tag/${POET_VERSION}` },
+      { text: "GitHub", link: "https://github.com/chrislernunes/poet" },
     ],
 
     sidebar: [
@@ -131,7 +131,7 @@ export default defineConfig({
           },
           {
             text: "File an Issue",
-            link: "https://github.com/poteto/poet/issues",
+            link: "https://github.com/chrislernunes/poet/issues",
           },
         ],
       },
