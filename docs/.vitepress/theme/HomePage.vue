@@ -7,7 +7,7 @@ declare const __POET_VERSION__: string;
 const version = __POET_VERSION__;
 const copied = ref(false);
 const promptText =
-  "Install Poet and set up this project. Follow\nhttps://raw.githubusercontent.com/poteto/poet/main/INSTALL.md";
+  "Install Poet and set up this project. Follow\nhttps://raw.githubusercontent.com/chrislernunes/poet/main/INSTALL.md";
 
 function copyPrompt() {
   navigator.clipboard.writeText(promptText).then(() => {
@@ -36,7 +36,7 @@ function copyPrompt() {
         <div class="header-right">
           <div class="divider-v"></div>
           <a
-            href="https://github.com/poteto/poet"
+            href="https://github.com/chrislernunes/poet"
             class="github-link"
             target="_blank"
             rel="noopener"
@@ -99,7 +99,7 @@ function copyPrompt() {
               </svg>
             </a>
             <a
-              href="https://github.com/poteto/poet"
+              href="https://github.com/chrislernunes/poet"
               class="btn-secondary"
               target="_blank"
               rel="noopener"
@@ -130,7 +130,7 @@ function copyPrompt() {
               <pre
                 class="quickstart-pre"
               ><code>Install Poet and set up this project. Follow
-<a href="https://raw.githubusercontent.com/poteto/poet/main/INSTALL.md" target="_blank" rel="noopener" class="quickstart-url">https://raw.githubusercontent.com/poteto/poet/main/INSTALL.md</a></code></pre>
+<a href="https://raw.githubusercontent.com/chrislernunes/poet/main/INSTALL.md" target="_blank" rel="noopener" class="quickstart-url">https://raw.githubusercontent.com/chrislernunes/poet/main/INSTALL.md</a></code></pre>
               <button class="quickstart-copy" @click="copyPrompt">
                 {{ copied ? "Copied!" : "Copy" }}
               </button>
@@ -252,7 +252,7 @@ function copyPrompt() {
               <p class="card-desc">
                 Optional persistent memory across sessions. Add
                 <a
-                  href="https://github.com/poteto/brainmaxxing"
+                  href="https://github.com/chrislernunes/brainmaxxing"
                   target="_blank"
                   rel="noopener"
                   >brainmaxxing</a
@@ -333,7 +333,7 @@ function copyPrompt() {
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-inner">
-        <span class="footer-text">LAUREN TAN © 2026</span>
+        <span class="footer-text">CHRISLER NUNES © 2026</span>
         <span class="footer-text">MIT License</span>
       </div>
     </footer>
