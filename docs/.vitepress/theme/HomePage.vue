@@ -1,19 +1,34 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { withBase } from "vitepress";
+import {withBase, useData} from "vitepress";
 
 declare const __POET_VERSION__: string;
 
 const version = __POET_VERSION__;
 const copied = ref(false);
 const promptText =
-  "Install Poet and set up this project. Follow\nhttps://raw.githubusercontent.com/poteto/poet/main/INSTALL.md";
+  "Install Poet and set up this project. Follow\nhttps://raw.githubusercontent.com/chrislernunes/poet/main/INSTALL.md";
 
 function copyPrompt() {
   navigator.clipboard.writeText(promptText).then(() => {
     copied.value = true;
     setTimeout(() => (copied.value = false), 2000);
   });
+}
+
+
+const { isDark } = useData();
+
+function toggleAppearance() {
+  const next = !isDark.value;
+  isDark.value = next;
+  if (typeof localStorage !== "undefined") {
+    localStorage.setItem(
+      "vitepress-theme-appearance",
+      next ? "dark" : "light"
+    );
+  }
+  document.documentElement.classList.toggle("dark", next);
 }
 </script>
 
@@ -36,7 +51,7 @@ function copyPrompt() {
         <div class="header-right">
           <div class="divider-v"></div>
           <a
-            href="https://github.com/poteto/poet"
+            href="https://github.com/chrislernunes/poet"
             class="github-link"
             target="_blank"
             rel="noopener"
@@ -56,6 +71,24 @@ function copyPrompt() {
               <path d="M7 17 17 7" />
             </svg>
           </a>
+
+          <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            @click="toggleAppearance"
+          >
+            <!-- sun (shown in dark mode = click to go light) -->
+            <svg v-if="isDark" class="theme-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+            <!-- moon (shown in light mode = click to go dark) -->
+            <svg v-else class="theme-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+
         </div>
       </div>
     </header>
@@ -99,7 +132,7 @@ function copyPrompt() {
               </svg>
             </a>
             <a
-              href="https://github.com/poteto/poet"
+              href="https://github.com/chrislernunes/poet"
               class="btn-secondary"
               target="_blank"
               rel="noopener"
@@ -130,7 +163,7 @@ function copyPrompt() {
               <pre
                 class="quickstart-pre"
               ><code>Install Poet and set up this project. Follow
-<a href="https://raw.githubusercontent.com/poteto/poet/main/INSTALL.md" target="_blank" rel="noopener" class="quickstart-url">https://raw.githubusercontent.com/poteto/poet/main/INSTALL.md</a></code></pre>
+<a href="https://raw.githubusercontent.com/chrislernunes/poet/main/INSTALL.md" target="_blank" rel="noopener" class="quickstart-url">https://raw.githubusercontent.com/chrislernunes/poet/main/INSTALL.md</a></code></pre>
               <button class="quickstart-copy" @click="copyPrompt">
                 {{ copied ? "Copied!" : "Copy" }}
               </button>
@@ -333,7 +366,7 @@ function copyPrompt() {
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-inner">
-        <span class="footer-text">LAUREN TAN © 2026</span>
+        <span class="footer-text">CHRISLER NUNES © 2026</span>
         <span class="footer-text">MIT License</span>
       </div>
     </footer>
@@ -917,4 +950,28 @@ function copyPrompt() {
   outline: 2px solid #ffffff;
   outline-offset: 2px;
 }
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 8px;
+  padding: 0;
+  border: 1px solid var(--poet-border);
+  background: transparent;
+  color: var(--poet-text-muted);
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.theme-toggle:hover {
+  color: var(--poet-text-main);
+  border-color: var(--poet-border-active);
+  background: var(--poet-surface-hover);
+}
+.theme-icon {
+  display: block;
+}
+
 </style>
