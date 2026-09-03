@@ -7,7 +7,7 @@ declare const __POET_VERSION__: string;
 const version = __POET_VERSION__;
 const copied = ref(false);
 const promptText =
-  "Install Poet and set up this project. Follow\nhttps://raw.githubusercontent.com/chrislernunes/poet/main/INSTALL.md";
+  "Install Poet and set up this project. Follow\nhttps://raw.githubusercontent.com/poteto/poet/main/INSTALL.md";
 
 function copyPrompt() {
   navigator.clipboard.writeText(promptText).then(() => {
@@ -36,7 +36,7 @@ function copyPrompt() {
         <div class="header-right">
           <div class="divider-v"></div>
           <a
-            href="https://github.com/chrislernunes/poet"
+            href="https://github.com/poteto/poet"
             class="github-link"
             target="_blank"
             rel="noopener"
@@ -99,7 +99,7 @@ function copyPrompt() {
               </svg>
             </a>
             <a
-              href="https://github.com/chrislernunes/poet"
+              href="https://github.com/poteto/poet"
               class="btn-secondary"
               target="_blank"
               rel="noopener"
@@ -130,7 +130,7 @@ function copyPrompt() {
               <pre
                 class="quickstart-pre"
               ><code>Install Poet and set up this project. Follow
-<a href="https://raw.githubusercontent.com/chrislernunes/poet/main/INSTALL.md" target="_blank" rel="noopener" class="quickstart-url">https://raw.githubusercontent.com/chrislernunes/poet/main/INSTALL.md</a></code></pre>
+<a href="https://raw.githubusercontent.com/poteto/poet/main/INSTALL.md" target="_blank" rel="noopener" class="quickstart-url">https://raw.githubusercontent.com/poteto/poet/main/INSTALL.md</a></code></pre>
               <button class="quickstart-copy" @click="copyPrompt">
                 {{ copied ? "Copied!" : "Copy" }}
               </button>
@@ -252,7 +252,7 @@ function copyPrompt() {
               <p class="card-desc">
                 Optional persistent memory across sessions. Add
                 <a
-                  href="https://github.com/chrislernunes/brainmaxxing"
+                  href="https://github.com/poteto/brainmaxxing"
                   target="_blank"
                   rel="noopener"
                   >brainmaxxing</a
@@ -333,7 +333,7 @@ function copyPrompt() {
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-inner">
-        <span class="footer-text">CHRISLER NUNES © 2026</span>
+        <span class="footer-text">LAUREN TAN © 2026</span>
         <span class="footer-text">MIT License</span>
       </div>
     </footer>
@@ -347,8 +347,8 @@ function copyPrompt() {
 
 .home {
   font-family: "JetBrains Mono", monospace;
-  background-color: #080808;
-  color: #ffffff;
+  background-color: var(--poet-bg);
+  color: var(--poet-text-main);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -357,8 +357,8 @@ function copyPrompt() {
 }
 
 .home ::selection {
-  background: #ffffff;
-  color: #000;
+  background: var(--poet-accent);
+  color: var(--poet-bg);
 }
 
 /* ============================================================
@@ -367,8 +367,8 @@ function copyPrompt() {
 
 .header {
   width: 100%;
-  border-bottom: 1px solid #161616;
-  background: rgba(8, 8, 8, 0.95);
+  border-bottom: 1px solid var(--poet-border);
+  background: color-mix(in srgb, var(--poet-bg) 95%, transparent);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   position: sticky;
@@ -393,7 +393,7 @@ function copyPrompt() {
 }
 
 .brand {
-  color: #fff;
+  color: var(--poet-text-main);
   font-weight: 700;
   letter-spacing: 0.2em;
   font-size: 0.875em;
@@ -402,7 +402,7 @@ function copyPrompt() {
 }
 
 .brand:hover {
-  color: #a3a3a3;
+  color: var(--poet-text-muted);
 }
 
 .header-nav {
@@ -419,14 +419,14 @@ function copyPrompt() {
 
 .nav-link {
   font-size: 0.8125em;
-  color: #8a8a8a;
+  color: var(--poet-text-muted);
   text-decoration: none;
   transition: color 0.2s;
   letter-spacing: 0.05em;
 }
 
 .nav-link:hover {
-  color: #d4d4d4;
+  color: var(--poet-text-main);
 }
 
 .header-right {
@@ -438,12 +438,12 @@ function copyPrompt() {
 .divider-v {
   height: 16px;
   width: 1px;
-  background: #1e1e1e;
+  background: var(--poet-surface-active);
 }
 
 .github-link {
   font-size: 0.8125em;
-  color: #8a8a8a;
+  color: var(--poet-text-muted);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -452,7 +452,7 @@ function copyPrompt() {
 }
 
 .github-link:hover {
-  color: #fff;
+  color: var(--poet-text-main);
 }
 
 /* ============================================================
@@ -463,7 +463,7 @@ function copyPrompt() {
   flex-grow: 1;
   width: 100%;
   padding: 80px 32px 128px;
-  background-image: radial-gradient(#222222 1px, transparent 0);
+  background-image: radial-gradient(var(--poet-border) 1px, transparent 0);
   background-size: 20px 20px;
 }
 
@@ -486,10 +486,10 @@ function copyPrompt() {
 .tag {
   display: inline-block;
   padding: 2px 8px;
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--poet-accent-dim);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 3px;
-  color: #ffffff;
+  color: var(--poet-text-main);
   font-size: 0.625em;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -498,7 +498,7 @@ function copyPrompt() {
 
 .badge-label {
   font-size: 0.6875em;
-  color: #6b6b6b;
+  color: var(--poet-text-tertiary);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -517,7 +517,7 @@ function copyPrompt() {
   margin-bottom: 8px;
   letter-spacing: -0.02em;
   font-size: clamp(56px, 8vw, 96px);
-  color: #fff;
+  color: var(--poet-text-main);
 }
 
 .hero-subtitle {
@@ -526,7 +526,7 @@ function copyPrompt() {
   margin-bottom: 40px;
   letter-spacing: -0.02em;
   font-size: clamp(56px, 8vw, 96px);
-  color: #444444;
+  color: var(--poet-text-tertiary);
 }
 
 .block {
@@ -536,13 +536,13 @@ function copyPrompt() {
 .cursor::after {
   content: "_";
   animation: blink 1.2s step-end infinite;
-  color: #ffffff;
+  color: var(--poet-text-main);
   font-weight: 700;
 }
 
 .hero-desc {
   font-size: 1.1em;
-  color: #9a9a9a;
+  color: var(--poet-text-muted);
   max-width: 560px;
   margin-bottom: 40px;
   line-height: 1.8;
@@ -559,8 +559,8 @@ function copyPrompt() {
   align-items: center;
   gap: 8px;
   padding: 10px 24px;
-  background: #ffffff;
-  color: #000;
+  background: var(--poet-accent);
+  color: var(--poet-bg);
   font-weight: 700;
   font-size: 0.875em;
   letter-spacing: 0.025em;
@@ -570,7 +570,7 @@ function copyPrompt() {
 }
 
 .btn-primary:hover {
-  background: #d4d4d4;
+  background: color-mix(in srgb, var(--poet-accent) 80%, white);
 }
 
 .btn-secondary {
@@ -579,8 +579,8 @@ function copyPrompt() {
   gap: 8px;
   padding: 10px 24px;
   background: transparent;
-  border: 1px solid #222;
-  color: #a3a3a3;
+  border: 1px solid var(--poet-border);
+  color: var(--poet-text-muted);
   font-weight: 500;
   font-size: 0.875em;
   letter-spacing: 0.025em;
@@ -592,8 +592,8 @@ function copyPrompt() {
 }
 
 .btn-secondary:hover {
-  border-color: #333;
-  color: #fff;
+  border-color: var(--poet-border-active);
+  color: var(--poet-text-main);
 }
 
 /* ============================================================
@@ -602,7 +602,7 @@ function copyPrompt() {
 
 .divider-line {
   border: none;
-  border-top: 1px solid #161616;
+  border-top: 1px solid var(--poet-border);
   margin: 0 0 64px;
 }
 
@@ -612,7 +612,7 @@ function copyPrompt() {
 
 .section-label {
   font-size: 0.8125em;
-  color: #555555;
+  color: var(--poet-text-tertiary);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom: 32px;
@@ -622,7 +622,7 @@ function copyPrompt() {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1px;
-  background: #161616;
+  background: var(--poet-border);
 }
 
 @media (min-width: 768px) {
@@ -640,7 +640,7 @@ function copyPrompt() {
 .feature-card {
   position: relative;
   overflow: hidden;
-  background: #080808;
+  background: var(--poet-bg);
   padding: 32px;
   border: 1px solid transparent;
   transition:
@@ -668,7 +668,7 @@ function copyPrompt() {
 }
 
 .feature-card:hover {
-  border-color: #2a2a2a;
+  border-color: var(--poet-border-active);
 }
 
 .card-header {
@@ -682,23 +682,23 @@ function copyPrompt() {
   width: 28px;
   height: 28px;
   border-radius: 2px;
-  background: #111;
-  border: 1px solid #1e1e1e;
+  background: var(--poet-surface);
+  border: 1px solid var(--poet-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: var(--poet-text-main);
 }
 
 .card-title {
-  color: #fff;
+  color: var(--poet-text-main);
   font-weight: 600;
   font-size: 0.875em;
   letter-spacing: 0.025em;
 }
 
 .card-desc {
-  color: #6b6b6b;
+  color: var(--poet-text-tertiary);
   font-size: 1.1em;
   line-height: 1.9;
   position: relative;
@@ -706,13 +706,13 @@ function copyPrompt() {
 }
 
 .card-desc a {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--poet-text-muted);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .card-desc a:hover {
-  color: #ffffff;
+  color: var(--poet-text-main);
 }
 
 .card-link {
@@ -722,7 +722,7 @@ function copyPrompt() {
   margin-top: auto;
   padding-top: 24px;
   font-size: 1em;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--poet-text-muted);
   text-decoration: none;
   transition: color 0.2s;
   letter-spacing: 0.05em;
@@ -731,7 +731,7 @@ function copyPrompt() {
 }
 
 .card-link:hover {
-  color: #ffffff;
+  color: var(--poet-text-main);
 }
 
 /* ============================================================
@@ -744,7 +744,7 @@ function copyPrompt() {
 
 .quickstart-label {
   font-size: 0.8125em;
-  color: #6b6b6b;
+  color: var(--poet-text-tertiary);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -752,8 +752,8 @@ function copyPrompt() {
 
 .quickstart-block {
   position: relative;
-  background: #0a0a0a;
-  border: 1px solid #161616;
+  background: var(--poet-bg-depth);
+  border: 1px solid var(--poet-border);
   border-radius: 2px;
   overflow: hidden;
 }
@@ -763,7 +763,7 @@ function copyPrompt() {
   padding: 20px 24px;
   font-size: 0.875em;
   line-height: 1.6;
-  color: #d4d4d4;
+  color: var(--poet-text-main);
   overflow-x: auto;
 }
 
@@ -772,13 +772,13 @@ function copyPrompt() {
 }
 
 .quickstart-url {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--poet-text-muted);
   text-decoration: none;
   transition: color 0.2s;
 }
 
 .quickstart-url:hover {
-  color: #ffffff;
+  color: var(--poet-text-main);
 }
 
 .quickstart-copy {
@@ -787,10 +787,10 @@ function copyPrompt() {
   right: 0;
   bottom: 0;
   padding: 0 20px;
-  background: #1a1a1a;
+  background: var(--poet-surface-active);
   border: none;
-  border-left: 1px solid #2a2a2a;
-  color: #8a8a8a;
+  border-left: 1px solid var(--poet-border-active);
+  color: var(--poet-text-muted);
   font-family: "JetBrains Mono", monospace;
   font-size: 0.6875em;
   text-transform: uppercase;
@@ -802,8 +802,8 @@ function copyPrompt() {
 }
 
 .quickstart-copy:hover {
-  color: #fff;
-  background: #222;
+  color: var(--poet-text-main);
+  background: var(--poet-border-active);
 }
 
 /* ============================================================
@@ -811,7 +811,7 @@ function copyPrompt() {
    ============================================================ */
 
 .footer {
-  border-top: 1px solid #161616;
+  border-top: 1px solid var(--poet-border);
   padding: 24px 32px;
 }
 
@@ -825,7 +825,7 @@ function copyPrompt() {
 
 .footer-text {
   font-size: 0.75em;
-  color: #555555;
+  color: var(--poet-text-tertiary);
   letter-spacing: 0.1em;
 }
 
