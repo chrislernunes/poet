@@ -285,7 +285,7 @@ function toggleAppearance() {
               <p class="card-desc">
                 Optional persistent memory across sessions. Add
                 <a
-                  href="https://github.com/poteto/brainmaxxing"
+                  href="https://github.com/chrislernunes/brainmaxxing"
                   target="_blank"
                   rel="noopener"
                   >brainmaxxing</a
