@@ -1,7 +1,5 @@
 # Poet
 
-**Agent orchestration for serious software projects.**
-
 Poet is a skill-based agent orchestration framework built in Go.
 
 It turns a software project into a structured workflow where agents can plan, execute, review, and iterate on work through defined skills and isolated worktrees.
