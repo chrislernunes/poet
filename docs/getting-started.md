@@ -8,7 +8,7 @@ Give this prompt to your coding agent ([Claude Code](https://docs.anthropic.com/
 
 ```md
 Install Poet and set up this project. Follow the instructions at
-https://raw.githubusercontent.com/poteto/poet/main/INSTALL.md
+https://raw.githubusercontent.com/chrislernunes/poet/main/INSTALL.md
 ```
 
 The agent installs the binary, creates a config, writes schedule and execute skills tailored to your project, seeds a backlog, and gets the loop running.
@@ -18,17 +18,17 @@ The agent installs the binary, creates a config, writes schedule and execute ski
 ::: code-group
 
 ```sh [Mac]
-brew install poteto/tap/poet
+brew install chrislernunes/tap/poet
 ```
 
 ```sh [Linux]
-curl -Lo poet https://github.com/poteto/poet/releases/latest/download/poet-linux-amd64
+curl -Lo poet https://github.com/chrislernunes/poet/releases/latest/download/poet-linux-amd64
 chmod +x poet
 sudo mv poet /usr/local/bin/
 ```
 
 ```powershell [Windows]
-Invoke-WebRequest -Uri https://github.com/poteto/poet/releases/latest/download/poet-windows-amd64.exe -OutFile poet.exe
+Invoke-WebRequest -Uri https://github.com/chrislernunes/poet/releases/latest/download/poet-windows-amd64.exe -OutFile poet.exe
 Move-Item poet.exe "$env:USERPROFILE\AppData\Local\Microsoft\WindowsApps\"
 ```
 
@@ -36,7 +36,7 @@ Move-Item poet.exe "$env:USERPROFILE\AppData\Local\Microsoft\WindowsApps\"
 
 Verify: `poet --version`
 
-You also need **Git** and at least one agent CLI. Then follow the steps in [INSTALL.md](https://github.com/poteto/poet/blob/main/INSTALL.md) manually.
+You also need **Git** and at least one agent CLI. Then follow the steps in [INSTALL.md](https://github.com/chrislernunes/poet/blob/main/INSTALL.md) manually.
 
 :::
 
