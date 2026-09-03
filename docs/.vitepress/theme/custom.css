@@ -1,0 +1,671 @@
+/* ============================================================
+   Poet docs theme — matches ui/src/app.css design tokens
+   Near-black backgrounds, white/grey accent, JetBrains Mono,
+   pixel borders, dot-grid content area.
+   ============================================================ */
+
+:root {
+  /* -- Backgrounds ----------------------------------------- */
+  --poet-bg: #050505;
+  --poet-bg-depth: #0a0a0a;
+  --poet-surface: #111111;
+  --poet-surface-hover: #161616;
+  --poet-surface-active: #1a1a1a;
+
+  /* -- Text ------------------------------------------------ */
+  --poet-text-main: #e5e5e5;
+  --poet-text-muted: #888888;
+  --poet-text-tertiary: #777777;
+
+  /* -- Borders --------------------------------------------- */
+  --poet-border: #222222;
+  --poet-border-active: #333333;
+
+  /* -- Accent ---------------------------------------------- */
+  --poet-accent: #ffffff;
+  --poet-accent-dim: rgba(255, 255, 255, 0.12);
+  --poet-accent-subtle: rgba(255, 255, 255, 0.06);
+
+  /* -- Status ---------------------------------------------- */
+  --poet-green: #4ade80;
+  --poet-red: #f87171;
+  --poet-blue: #60a5fa;
+
+  /* -- Typography ------------------------------------------ */
+  --poet-font: "JetBrains Mono", monospace;
+}
+
+
+/* ============================================================
+   VitePress CSS-variable overrides (dark mode)
+   ============================================================ */
+
+:root {
+  --vp-c-bg: var(--poet-bg);
+  --vp-c-bg-alt: var(--poet-bg-depth);
+  --vp-c-bg-elv: var(--poet-surface);
+  --vp-c-bg-soft: var(--poet-surface);
+
+  --vp-c-text-1: var(--poet-text-main);
+  --vp-c-text-2: var(--poet-text-muted);
+  --vp-c-text-3: var(--poet-text-tertiary);
+
+  --vp-c-divider: var(--poet-border);
+  --vp-c-gutter: var(--poet-bg-depth);
+
+  --vp-c-brand-1: var(--poet-accent);
+  --vp-c-brand-2: var(--poet-accent);
+  --vp-c-brand-3: var(--poet-accent);
+  --vp-c-brand-soft: var(--poet-accent-dim);
+
+  --vp-c-tip-1: var(--poet-accent);
+  --vp-c-tip-2: var(--poet-accent);
+  --vp-c-tip-3: var(--poet-accent-dim);
+  --vp-c-tip-soft: var(--poet-accent-subtle);
+
+  --vp-c-warning-1: var(--poet-accent);
+  --vp-c-warning-2: var(--poet-accent);
+  --vp-c-warning-soft: var(--poet-accent-dim);
+
+  --vp-c-danger-1: var(--poet-red);
+  --vp-c-danger-2: var(--poet-red);
+  --vp-c-danger-soft: rgba(248, 113, 113, 0.12);
+
+  --vp-c-default-1: var(--poet-border-active);
+  --vp-c-default-2: var(--poet-border);
+  --vp-c-default-3: var(--poet-border);
+  --vp-c-default-soft: var(--poet-surface);
+
+  --vp-font-family-base: var(--poet-font);
+  --vp-font-family-mono: var(--poet-font);
+
+  --vp-sidebar-bg-color: var(--poet-bg);
+  --vp-nav-bg-color: var(--poet-bg);
+
+  --vp-code-bg: var(--poet-bg-depth);
+  --vp-code-color: var(--poet-text-main);
+  --vp-code-block-bg: var(--poet-bg-depth);
+
+  --vp-button-brand-bg: var(--poet-accent);
+  --vp-button-brand-text: var(--poet-bg);
+  --vp-button-brand-hover-bg: #d4d4d4;
+  --vp-button-brand-hover-text: var(--poet-bg);
+  --vp-button-brand-active-bg: #b0b0b0;
+  --vp-button-brand-active-text: var(--poet-bg);
+
+  --vp-button-alt-bg: var(--poet-surface);
+  --vp-button-alt-text: var(--poet-text-main);
+  --vp-button-alt-hover-bg: var(--poet-surface-hover);
+  --vp-button-alt-hover-text: var(--poet-text-main);
+
+  --vp-home-hero-name-color: var(--poet-text-main);
+
+  --vp-custom-block-tip-bg: var(--poet-accent-subtle);
+  --vp-custom-block-tip-text: var(--poet-text-main);
+  --vp-custom-block-tip-border: var(--poet-accent);
+  --vp-custom-block-tip-code-bg: var(--poet-bg-depth);
+
+  --vp-custom-block-info-bg: var(--poet-surface);
+  --vp-custom-block-info-text: var(--poet-text-main);
+  --vp-custom-block-info-border: var(--poet-border-active);
+
+  --vp-custom-block-warning-bg: var(--poet-accent-subtle);
+  --vp-custom-block-warning-text: var(--poet-text-main);
+  --vp-custom-block-warning-border: var(--poet-accent);
+
+  --vp-custom-block-danger-bg: rgba(248, 113, 113, 0.06);
+  --vp-custom-block-danger-text: var(--poet-text-main);
+  --vp-custom-block-danger-border: var(--poet-red);
+}
+
+/* Force dark regardless of OS preference */
+html {
+  color-scheme: dark;
+}
+
+.dark {
+  color-scheme: dark;
+}
+
+
+/* ============================================================
+   Global typography
+   ============================================================ */
+
+body {
+  font-family: var(--poet-font);
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  border-radius: 0 !important;
+}
+
+
+/* ============================================================
+   Selection
+   ============================================================ */
+
+::selection {
+  background: var(--poet-accent);
+  color: var(--poet-bg);
+}
+
+
+/* ============================================================
+   Scrollbars
+   ============================================================ */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--poet-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--poet-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--poet-text-muted);
+}
+
+
+/* ============================================================
+   Navbar — matched to HomePage header
+   ============================================================ */
+
+:root {
+  --vp-nav-height: 52px;
+}
+
+.VPNav {
+  border-bottom: 1px solid #161616 !important;
+}
+
+.VPNavBar {
+  background: rgba(5, 5, 5, 0.95) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid #161616 !important;
+}
+
+.VPNavBar .title {
+  font-family: var(--poet-font);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+
+/* ============================================================
+   Sidebar
+   ============================================================ */
+
+.VPSidebar {
+  background: var(--poet-bg) !important;
+  border-right: 1px solid var(--poet-border) !important;
+}
+
+.VPSidebarItem .text {
+  font-family: var(--poet-font);
+  font-size: 0.9em;
+}
+
+.VPSidebarItem.is-active > .item > .indicator {
+  background: var(--poet-accent) !important;
+}
+
+.VPSidebarItem.is-active > .item > .link > .text {
+  color: var(--poet-accent) !important;
+  font-weight: 600;
+}
+
+/* Section titles */
+.VPSidebarItem.level-0 > .item > .link > .text {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--poet-text-muted);
+}
+
+
+/* ============================================================
+   Content area — dot grid background
+   ============================================================ */
+
+.VPDoc .container {
+  background-image: radial-gradient(var(--poet-border) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+.VPContent {
+  background: var(--poet-bg) !important;
+}
+
+
+/* ============================================================
+   Headings
+   ============================================================ */
+
+.vp-doc h1 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.vp-doc h2 {
+  font-family: var(--poet-font);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--poet-border);
+  padding-bottom: 12px;
+}
+
+.vp-doc h3 {
+  font-weight: 600;
+}
+
+.vp-doc p {
+  font-size: 1em;
+}
+
+
+/* ============================================================
+   Code blocks
+   ============================================================ */
+
+.vp-doc div[class*="language-"] {
+  background: var(--poet-bg-depth) !important;
+  border: 1px solid var(--poet-border);
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+  .vp-doc div[class*="language-"] {
+    padding-left: 12px;
+  }
+}
+
+.vp-doc div[class*="language-"] > span.lang {
+  background: var(--poet-border-active);
+  color: var(--poet-text-main);
+  font-size: 0.625em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  font-family: var(--poet-font);
+}
+
+.vp-doc :not(pre) > code {
+  background: var(--poet-surface);
+  border: 1px solid var(--poet-border);
+  padding: 2px 4px;
+  font-size: 0.9em;
+  color: var(--poet-text-main);
+}
+
+
+/* ============================================================
+   Custom blocks / callouts
+   ============================================================ */
+
+.vp-doc .custom-block {
+  border: 1px solid var(--poet-border);
+  border-left-width: 2px;
+}
+
+.vp-doc .custom-block.tip {
+  border-left-color: var(--poet-accent);
+  background: var(--poet-accent-subtle);
+}
+
+.vp-doc .custom-block.warning {
+  border-left-color: var(--poet-accent);
+  background: var(--poet-accent-subtle);
+}
+
+.vp-doc .custom-block.danger {
+  border-left-color: var(--poet-red);
+  background: rgba(248, 113, 113, 0.06);
+}
+
+
+/* ============================================================
+   TOC (aside / outline)
+   ============================================================ */
+
+.VPDocAsideOutline {
+  border-left: 1px solid var(--poet-border) !important;
+}
+
+.VPDocAsideOutline .outline-marker {
+  background: var(--poet-accent) !important;
+  width: 4px !important;
+  height: 4px !important;
+  border-radius: 0 !important;
+  translate: -2px 8px;
+}
+
+.VPDocAsideOutline .outline-link.active {
+  color: var(--poet-accent) !important;
+  font-weight: 500;
+}
+
+.VPDocAsideOutline .outline-title {
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+
+/* ============================================================
+   Hero (landing page)
+   ============================================================ */
+
+.VPHero .name {
+  font-family: var(--poet-font) !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+}
+
+.VPHero .text {
+  font-family: var(--poet-font) !important;
+  color: var(--poet-text-muted) !important;
+}
+
+.VPHero .tagline {
+  font-family: var(--poet-font) !important;
+  color: var(--poet-text-tertiary) !important;
+}
+
+.VPHomeHero .name .clip {
+  background: var(--poet-accent) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+
+/* ============================================================
+   Feature cards
+   ============================================================ */
+
+.VPFeature {
+  background: var(--poet-surface) !important;
+  border: 1px solid var(--poet-border) !important;
+  transition: border-color 0.15s;
+}
+
+.VPFeature:hover {
+  border-color: var(--poet-border-active) !important;
+}
+
+.VPFeature .title {
+  color: var(--poet-accent) !important;
+  font-family: var(--poet-font);
+  font-weight: 600;
+}
+
+.VPFeature .details {
+  color: var(--poet-text-muted) !important;
+  font-family: var(--poet-font);
+  font-size: 0.8em;
+}
+
+
+/* ============================================================
+   Links
+   ============================================================ */
+
+.vp-doc a {
+  color: var(--poet-accent);
+  text-decoration: underline;
+  text-decoration-color: var(--poet-border-active);
+  text-underline-offset: 3px;
+}
+
+.vp-doc a:hover {
+  text-decoration-color: var(--poet-accent);
+}
+
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.VPDocFooter {
+  border-top: 1px solid var(--poet-border) !important;
+}
+
+.VPDocFooter .pager-link {
+  background: var(--poet-surface) !important;
+  border: 1px solid var(--poet-border) !important;
+}
+
+.VPDocFooter .pager-link:hover {
+  border-color: var(--poet-border-active) !important;
+}
+
+
+/* ============================================================
+   Tables
+   ============================================================ */
+
+.vp-doc table {
+  display: table;
+  width: 100%;
+  border: 1px solid var(--poet-border);
+}
+
+.vp-doc table th {
+  background: var(--poet-surface);
+  border: 1px solid var(--poet-border);
+  font-family: var(--poet-font);
+  font-size: 0.7em;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.vp-doc table td {
+  border: 1px solid var(--poet-border);
+}
+
+.vp-doc table tr:nth-child(even) {
+  background: var(--poet-surface);
+}
+
+@media (max-width: 768px) {
+  .vp-doc table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-left: 12px;
+    margin-right: 12px;
+    width: auto;
+  }
+}
+
+
+/* ============================================================
+   Search
+   ============================================================ */
+
+#local-search .DocSearch-Button {
+  width: 400px !important;
+}
+
+.VPNavBarSearch .search-input {
+  background: var(--poet-surface) !important;
+  border: 1px solid var(--poet-border) !important;
+  font-family: var(--poet-font);
+}
+
+.VPNavBarSearch .search-input:hover {
+  border-color: var(--poet-border-active) !important;
+}
+
+
+/* ============================================================
+   Interaction design — transitions, hover states, scroll
+   ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Sidebar link transitions */
+.VPSidebarItem .link {
+  transition: color 0.15s, background 0.15s;
+}
+
+.VPSidebarItem .link:hover {
+  background: var(--poet-surface) !important;
+}
+
+/* Nav link transitions */
+.VPNavBarMenuLink {
+  transition: color 0.15s !important;
+}
+
+/* Content link transitions */
+.vp-doc a {
+  transition: color 0.15s, text-decoration-color 0.2s;
+}
+
+/* Code block hover glow */
+.vp-doc div[class*="language-"] {
+  transition: border-color 0.2s;
+}
+
+.vp-doc div[class*="language-"]:hover {
+  border-color: var(--poet-border-active);
+}
+
+/* Copy button polish */
+.vp-doc div[class*="language-"] button.copy {
+  background-color: var(--poet-surface) !important;
+  border: 1px solid var(--poet-border) !important;
+  transition: border-color 0.15s, opacity 0.15s;
+}
+
+.vp-doc div[class*="language-"] button.copy:hover {
+  border-color: var(--poet-border-active) !important;
+}
+
+/* TOC link transitions */
+.VPDocAsideOutline .outline-link {
+  transition: color 0.15s;
+}
+
+/* Footer pager transitions */
+.VPDocFooter .pager-link {
+  transition: border-color 0.2s, background 0.2s !important;
+}
+
+.VPDocFooter .pager-link:hover {
+  background: var(--poet-surface-hover) !important;
+}
+
+/* Table row hover */
+.vp-doc table tr {
+  transition: background 0.15s;
+}
+
+.vp-doc table tr:hover {
+  background: var(--poet-surface-hover) !important;
+}
+
+/* Custom block hover */
+.vp-doc .custom-block {
+  transition: border-color 0.2s;
+}
+
+.vp-doc .custom-block:hover {
+  border-color: var(--poet-border-active);
+}
+
+/* Inline code hover */
+.vp-doc :not(pre) > code {
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.vp-doc :not(pre) > code:hover {
+  background: var(--poet-surface-hover);
+  border-color: var(--poet-border-active);
+}
+
+
+/* ============================================================
+   Focus-visible
+   ============================================================ */
+
+:focus-visible {
+  outline: 2px solid var(--poet-accent);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--poet-accent);
+  outline-offset: 1px;
+}
+
+
+/* ============================================================
+   Reduced motion
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+
+/* ============================================================
+   Copy button feedback
+   ============================================================ */
+
+.vp-doc div[class*="language-"] button.copy.copied {
+  border-color: var(--poet-accent) !important;
+  opacity: 1;
+}
+
+
+/* ============================================================
+   Heading anchor hover
+   ============================================================ */
+
+.vp-doc .header-anchor {
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.vp-doc h1:hover .header-anchor,
+.vp-doc h2:hover .header-anchor,
+.vp-doc h3:hover .header-anchor,
+.vp-doc h4:hover .header-anchor,
+.vp-doc h5:hover .header-anchor,
+.vp-doc h6:hover .header-anchor {
+  opacity: 1;
+}
+
+.vp-doc .header-anchor:focus-visible {
+  opacity: 1;
+}
